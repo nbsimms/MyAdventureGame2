@@ -1,0 +1,109 @@
+import time
+import random
+
+
+def print_pause(message_to_print):
+    print(message_to_print)
+    time.sleep(2)
+
+def intro():
+    print_pause("It's Friday and you're bored.  You head over to the ")
+    print_pause(" arcade to play a few games.  You notice a new machine "
+                "on the front of the game are the words, ")
+    print_pause(" Only in your dreams. The game starts to light up even "
+                "through you haven't deposited a coin.  Then you see "
+                " the words...")
+
+
+def scary_house(weapon):
+    print_pause("You approach the old house as your heart starts to race as "
+                "you feel a creepy sensation up your spine.")
+    print_pause("You knock on the door and an old gentle looking woman answers.")
+    print_pause("The old woman says nothing just hands you a box and "
+                "closes the door.  You slowly open the box "
+                "to reveal an item inside.")
+
+    if "wand" in weapon:
+        print_pause("I think I'll use this wand to wish for a bike"
+                    "and ride out of this crazy place.")
+
+    if "magic charm" in weapon:
+        print_pause("What's that shiny object hanging from that tree?")
+        print_pause("It looks old and mystical maybe it's magical.")
+
+    if "phone" in weapon:
+            print_pause("Oh no, I get get reception out here!")
+            adventure(weapon)
+
+def dark_forest(weapon):
+    print_pause("You start running as fast as you can through the dark forest.")
+
+    print_pause("In your hand magically appears an item.")
+
+    if "wand" in weapon:
+        print_pause("Looks like that wand only works in the haunted house.")
+        adventure(weapon)
+
+    if "magic charm" in weapon:
+        print_pause("What's that shiny object hanging from that tree?")
+        print_pause("It looks old and mystical maybe it's magical.")
+
+    if "phone" in weapon:
+            print_pause("Oh no, I get get reception out here!")
+            adventure(weapon)
+
+
+def sweet_home(weapon):
+    print_pause("You're back in your family house, but your family has been "
+                " replaced with alien robots. They start to attack "
+                "at your feet is an item, you pick it up.")
+
+    if "phone" in weapon:
+        print_pause("Wow what a nightmare.  I think I'll stick to "
+                    "reading books.")
+    if "magic charm" in weapon:
+            print_pause("No, I don't want to go back there again!!")
+
+
+    if "wand"in weapon:
+        print_pause("This is cool!  Let me wave myself off to a new adventure!")
+        adventure(weapon)
+
+    weapon = ['wand', 'magic charm', 'phone']
+
+
+def adventure_play(weapon):
+    while True:
+        play = input("Do you want to play a game? y or n?\n").lower()
+        #if play in ('y', 'n'):
+
+        if play == 'y':
+            print_pause("Where would you like to go?")
+            choices = input("1. Haunted House\n"
+                            "2. Creepy Forest\n"
+                            "3. Home Sweet Home\n")
+
+        else:
+            if play == 'n':
+                print_pause("Okay, maybe next time.")
+                break
+
+        if choices == '1':
+            random.choice = scary_house(weapon)
+
+        elif choices == '2':
+            random.choice = dark_forest(weapon)
+
+        elif choices == '3':
+            random.choice = sweet_home(weapon)
+
+
+
+def play_game():
+    weapon = []
+    intro()
+    adventure_play(weapon)
+
+
+play_game()
+
